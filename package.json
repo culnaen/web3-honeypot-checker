@@ -1,0 +1,17 @@
+{
+  "name": "web3-honeypot-checker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node ./src/index.ts"
+  },
+  "dependencies": {
+    "erc-20-abi": "^1.0.0",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3",
+    "web3": "^1.5.2"
+  },
+  "author": "",
+  "license": "ISC"
+}
