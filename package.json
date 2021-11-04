@@ -1,5 +1,5 @@
 {
-  "name": "web3-honeypot-checker",
+  "name": "binance-chain-honeypot-checker",
   "version": "0.1.0",
   "description": "Binance Smart Chain Honeypot checker",
   "main": "dist/index.js",
