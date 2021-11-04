@@ -1,7 +1,7 @@
 import Web3 from "web3";
 import { ethereumChains } from "./chainDatas";
 
-const start = async () => {
+export const CheckERC20Safety = async (address: string) => {
   const binance = ethereumChains.find((e) => e.id === "binance");
 
   if (binance) {
@@ -9,8 +9,6 @@ const start = async () => {
     const web3 = new Web3(provider);
 
     let bnbIN = web3.utils.toWei("0.5", "ether");
-
-    const address = "0x33f8ed7d9013f921de6f373608b1d3c21c82c92d";
 
     let encodedAddress = web3.eth.abi.encodeParameter("address", address);
     let contractFuncData = "0xd66383cb";
@@ -60,20 +58,12 @@ const start = async () => {
       const message = (error as any).message as string;
 
       if (message) {
-        console.log(message);
-
         if (message.includes("TRANSFER_FROM_FAILED")) {
           return { isHoneypot: true, buyTax: "0", sellTax: "0" };
         }
       }
     }
+  } else {
+    return { isHoneypot: false, buyTax: "0", sellTax: "0" };
   }
 };
-
-start()
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((e) => {
-    console.log(e);
-  });
